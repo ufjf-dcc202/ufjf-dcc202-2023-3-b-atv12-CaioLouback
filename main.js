@@ -1,4 +1,4 @@
-import { getEstoque } from "./estoque.js";
+import { getEstoque, transacao } from "./estoque.js";
 
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
@@ -12,9 +12,12 @@ function leFormulario(event){
     const quantidade = document.entrada.quantidade.valueAsNumber;
     const fruta = document.entrada.fruta.value;
     const origem = document.entrada.origem.value;
-    const destino = document.entrada.origem.value;
+    const destino = document.entrada.destino.value;
 
     console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
+
+    transacao(origem, destino, fruta, quantidade);
+    atualizaTela();
 }
 
 
