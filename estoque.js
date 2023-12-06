@@ -14,4 +14,8 @@ function getEstoque(){
     return  structuredClone(estoque);
 }
 
+function transacao (origem, destino, tipo, quantidade){
+    
+}
+
 export {getEstoque};
