@@ -1,7 +1,11 @@
+import { getEstoque } from "./estoque.js";
+
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
 
 document.entrada.addEventListener('submit', leFormulario);
+
+atualizaTela();
 
 function leFormulario(event){
     event.preventDefault();
@@ -13,3 +17,14 @@ function leFormulario(event){
     console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
 }
 
+
+function atualizaTela(){
+    const estoque = getEstoque();
+    olJoao.innerHTML = "";
+    for(let i =0; i < estoque.joao.length; i++){
+        const monte = estoque.joao[i];
+        const li = document.createElement('li');
+        li.textContent = `${monte.tipo}: ${monte.qtd}`;
+        olJoao.append(li);
+    }
+}
